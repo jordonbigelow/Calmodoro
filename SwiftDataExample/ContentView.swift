@@ -38,7 +38,7 @@ struct ContentView: View {
     
     @State var isSetTimerButtonActive = false
     
-    @State var isPaused = false
+    @State var isPaused = true
     @State private var rotation = 0
     
     /*

@@ -51,7 +51,6 @@ struct ContentView: View {
     var body: some View {
         // MARK: - Timer View
         VStack {
-            
             VStack {
                 Text("Calmodoro Timer")
                     .font(.title)
@@ -59,20 +58,20 @@ struct ContentView: View {
                 ZStack {
                     ProgressBarView(progress: $timerViewModel.seconds, goal: $timerViewModel.goalTime)
                         .padding(20)
-                    if !isSetTimerButtonActive{
+                    if !isSetTimerButtonActive {
                         timerText
                     }
-
+                    
                     if isPomodoroTimerActive && isSetTimerButtonActive && !isStartButtonPressed {
                         DatePicker("Selected Time", selection: $pomodoroTimer, displayedComponents: [.hourAndMinute])
-                        .labelsHidden()
-                        .datePickerStyle(WheelDatePickerStyle())
-                        .environment(\.locale, Locale(identifier: "en_GB"))
+                            .labelsHidden()
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .environment(\.locale, Locale(identifier: "en_GB"))
                     } else if isBreakTimerActive && isSetTimerButtonActive && !isStartButtonPressed {
                         DatePicker("Selected Time", selection: $breakTimer, displayedComponents: [.hourAndMinute])
-                        .labelsHidden()
-                        .datePickerStyle(WheelDatePickerStyle())
-                        .environment(\.locale, Locale(identifier: "en_GB"))
+                            .labelsHidden()
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .environment(\.locale, Locale(identifier: "en_GB"))
                     }
                 }
                 
@@ -102,7 +101,7 @@ struct ContentView: View {
             .background(.blue)
             .cornerRadius(15)
             .padding(20)
-           
+            
             // MARK: - Tasks View
             VStack {
                 NavigationSplitView {

@@ -23,13 +23,12 @@ import SwiftData
 struct ContentView: View {
     // MARK: - Properties
     @Environment(\.modelContext) private var modelContext
-    @ObservedObject var timerViewModel: TimerViewModel
+    @ObservedObject var pomodoroTimerViewModel: TimerViewModel
+    @ObservedObject var breakTimerViewModel: TimerViewModel
     @Query private var items: [Task]
     
     @State var pomodoroTimer = Date()
-    @State var pomodoroTimerInSeconds: Double = 1500
     @State var breakTimer = Date()
-    @State var breakTimerInSeconds: Double = 300
     
     @State var isPomodoroDatePickerVisible = false
     @State var isPomodoroTimerActive = true
@@ -40,12 +39,21 @@ struct ContentView: View {
     @State var isSetTimerButtonActive = false
     
     @State var isPaused = false
-    @State var isStartButtonPressed = false
     @State private var rotation = 0
     
+    /*
+    private func setTimer(date: Date) -> Double {
+        if isPomodoroTimerActive && !isBreakTimerActive && isSetTimerButtonActive {
+            pomodoroTimer.
+        }
+    }
+    */
     // MARK: - Initializer
     init(seconds: TimeInterval = 0) {
-        timerViewModel = TimerViewModel(seconds: seconds, goalTime: 300)
+        // 25 minutes in seconds = 1500
+        pomodoroTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 1500)
+        // 5 minutes in seconds = 300
+        breakTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 300)
     }
     
     var body: some View {
@@ -56,20 +64,18 @@ struct ContentView: View {
                     .font(.title)
                 topButtons
                 ZStack {
-                    ProgressBarView(progress: $timerViewModel.seconds, goal: $timerViewModel.goalTime)
+                    ProgressBarView(progress: isPomodoroTimerActive ? $pomodoroTimerViewModel.seconds : $breakTimerViewModel.seconds, goal: isPomodoroTimerActive ? $pomodoroTimerViewModel.goalTime : $breakTimerViewModel.goalTime)
                         .padding(20)
                     if !isSetTimerButtonActive {
                         timerText
                     }
                     
-                    if isPomodoroTimerActive && isSetTimerButtonActive && !isStartButtonPressed {
-                        DatePicker("Selected Time", selection: $pomodoroTimer, displayedComponents: [.hourAndMinute])
-                            .labelsHidden()
+                    if isPomodoroTimerActive && isSetTimerButtonActive && isPaused {
+                        DatePicker("Pomdoro Timer", selection: $pomodoroTimer, displayedComponents: [.hourAndMinute])
                             .datePickerStyle(WheelDatePickerStyle())
                             .environment(\.locale, Locale(identifier: "en_GB"))
-                    } else if isBreakTimerActive && isSetTimerButtonActive && !isStartButtonPressed {
-                        DatePicker("Selected Time", selection: $breakTimer, displayedComponents: [.hourAndMinute])
-                            .labelsHidden()
+                    } else if isBreakTimerActive && isSetTimerButtonActive && isPaused {
+                        DatePicker("Break Timer", selection: $breakTimer, displayedComponents: [.hourAndMinute])
                             .datePickerStyle(WheelDatePickerStyle())
                             .environment(\.locale, Locale(identifier: "en_GB"))
                     }
@@ -140,21 +146,27 @@ struct ContentView: View {
     // MARK: - Private Views
     private var timerText: some View {
         VStack {
-            Text(timerViewModel.progress >= 1 ? "DONE" : timerViewModel.displayTime)
-                .font(.largeTitle)
-                .foregroundColor(.black)
+            if isPomodoroTimerActive {
+                Text(pomodoroTimerViewModel.progress >= 1 ? "DONE" : pomodoroTimerViewModel.displayTime)
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+            } else if isBreakTimerActive {
+                Text(breakTimerViewModel.progress >= 1 ? "DONE" : breakTimerViewModel.displayTime)
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+            }
         }
     }
     
     private var topButtons: some View {
         HStack {
-            if !isStartButtonPressed {
+            if isPaused {
                 Button("Pomodoro", action: {
                     isPomodoroTimerActive = true
                     isBreakTimerActive = false
                 })
                 .padding(5)
-                .background(isPomodoroTimerActive ? .yellow: .teal)
+                .background(isPomodoroTimerActive ? .yellow: .white)
                 .cornerRadius(5)
                 .shadow(radius: isPomodoroTimerActive ? 5 : 0)
                 
@@ -163,15 +175,15 @@ struct ContentView: View {
                     isPomodoroTimerActive = false
                 })
                 .padding(5)
-                .background(isBreakTimerActive ? .yellow: .teal)
+                .background(isBreakTimerActive ? .yellow: .white)
                 .cornerRadius(5)
                 .shadow(radius: isBreakTimerActive ? 5 : 0)
                 
-                Button ("Set Timer", action: {
+                Button("Set Timer", action: {
                     isSetTimerButtonActive.toggle()
                 })
                 .padding(5)
-                .background(isSetTimerButtonActive ? .yellow: .teal)
+                .background(isSetTimerButtonActive ? .yellow: .white)
                 .cornerRadius(5)
                 .shadow(radius: isSetTimerButtonActive ? 5 : 0)
             }
@@ -181,7 +193,7 @@ struct ContentView: View {
     
     private var resetButton: some View {
         Button {
-            reset()
+            reset(timerViewModel: isPomodoroTimerActive ? pomodoroTimerViewModel : breakTimerViewModel, rotation: rotation)
         } label: {
             HStack(spacing: 0) {
                 Image(systemName: "arrow.clockwise")
@@ -193,9 +205,12 @@ struct ContentView: View {
     
     private var startPauseButton: some View {
         Button {
-            if timerViewModel.progress < 1 {
+            if pomodoroTimerViewModel.progress < 1 && isPomodoroTimerActive {
                 isPaused.toggle()
-                isPaused ? timerViewModel.pauseSession() : timerViewModel.startSession()
+                isPaused ? pomodoroTimerViewModel.pauseSession() : pomodoroTimerViewModel.startSession()
+            } else if breakTimerViewModel.progress < 1 && isBreakTimerActive {
+                isPaused.toggle()
+                isPaused ? breakTimerViewModel.pauseSession() : breakTimerViewModel.startSession()
             }
         } label: {
             HStack {
@@ -204,11 +219,12 @@ struct ContentView: View {
             }
         }
     }
+        
     // MARK: - Private Methods
     
-    private func reset() {
+    private func reset(timerViewModel: TimerViewModel, rotation: Int) {
         withAnimation(.easeInOut(duration: 0.4)) {
-            rotation += 360
+            self.rotation += 360
         }
         
         if timerViewModel.progress >= 1 {

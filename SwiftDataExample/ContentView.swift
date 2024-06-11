@@ -26,36 +26,22 @@ struct ContentView: View {
     @ObservedObject var pomodoroTimerViewModel: TimerViewModel
     @ObservedObject var breakTimerViewModel: TimerViewModel
     @Query private var items: [Task]
-    
-    @State var pomodoroTimer = Date()
-    @State var breakTimer = Date()
-    
-    @State var isPomodoroDatePickerVisible = false
     @State var isPomodoroTimerActive = true
-    
     @State var isBreakTimerActive = false
-    @State var isBreakDatePickerVisible = false
-    
     @State var isSetTimerButtonActive = false
-    
     @State var isPaused = true
     @State private var rotation = 0
+    @State var pomodoroTimer: Double = 0
+    @State var breakTimer: Double = 0
     
-    /*
-    private func setTimer(date: Date) -> Double {
-        if isPomodoroTimerActive && !isBreakTimerActive && isSetTimerButtonActive {
-            pomodoroTimer.
-        }
-    }
-    */
     // MARK: - Initializer
     init(seconds: TimeInterval = 0) {
         // 25 minutes in seconds = 1500
-        pomodoroTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 1500)
+        pomodoroTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 120)
         // 5 minutes in seconds = 300
-        breakTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 300)
+        breakTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 60)
     }
-    
+   
     var body: some View {
         // MARK: - Timer View
         VStack {
@@ -69,19 +55,12 @@ struct ContentView: View {
                     if !isSetTimerButtonActive {
                         timerText
                     }
-                    
-                    if isPomodoroTimerActive && isSetTimerButtonActive && isPaused {
-                        DatePicker("Pomdoro Timer", selection: $pomodoroTimer, displayedComponents: [.hourAndMinute])
-                            .datePickerStyle(WheelDatePickerStyle())
-                            .environment(\.locale, Locale(identifier: "en_GB"))
-                    } else if isBreakTimerActive && isSetTimerButtonActive && isPaused {
-                        DatePicker("Break Timer", selection: $breakTimer, displayedComponents: [.hourAndMinute])
-                            .datePickerStyle(WheelDatePickerStyle())
-                            .environment(\.locale, Locale(identifier: "en_GB"))
+                                      
+                    if (isPomodoroTimerActive || isBreakTimerActive) && isSetTimerButtonActive {
+                        SetTimerView()
                     }
                 }
                 
-                // MARK: - Bottom Buttons
                 if !isSetTimerButtonActive {
                     HStack {
                         startPauseButton
@@ -157,7 +136,8 @@ struct ContentView: View {
             }
         }
     }
-    
+   
+    // MARK: - Top Button View
     private var topButtons: some View {
         HStack {
             if isPaused {
@@ -181,6 +161,9 @@ struct ContentView: View {
                 
                 Button("Set Timer", action: {
                     isSetTimerButtonActive.toggle()
+                    if !isSetTimerButtonActive {
+                        setTimer()
+                    }
                 })
                 .padding(5)
                 .background(isSetTimerButtonActive ? .yellow: .white)
@@ -190,7 +173,8 @@ struct ContentView: View {
         }
         .foregroundColor(.indigo)
     }
-    
+   
+    // MARK: - Reset Button View
     private var resetButton: some View {
         Button {
             reset(timerViewModel: isPomodoroTimerActive ? pomodoroTimerViewModel : breakTimerViewModel, rotation: rotation)
@@ -203,6 +187,7 @@ struct ContentView: View {
         }
     }
     
+    // MARK: - StartPause Button View
     private var startPauseButton: some View {
         Button {
             if pomodoroTimerViewModel.progress < 1 && isPomodoroTimerActive {
@@ -221,6 +206,14 @@ struct ContentView: View {
     }
         
     // MARK: - Private Methods
+    
+    private func setTimer() {
+        if isPomodoroTimerActive {
+            pomodoroTimerViewModel.updateGoalTime()
+        } else if isBreakTimerActive {
+            breakTimerViewModel.updateGoalTime()
+        }
+    }
     
     private func reset(timerViewModel: TimerViewModel, rotation: Int) {
         withAnimation(.easeInOut(duration: 0.4)) {

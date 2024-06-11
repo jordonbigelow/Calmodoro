@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F790E92B2C17A4610036A61D /* SetTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790E92A2C17A4610036A61D /* SetTimerView.swift */; };
 		F7CB4D512C0D8114007C4ABB /* SwiftDataExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */; };
 		F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D522C0D8114007C4ABB /* ContentView.swift */; };
 		F7CB4D552C0D8114007C4ABB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D542C0D8114007C4ABB /* Task.swift */; };
@@ -18,7 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F7CB4D4D2C0D8114007C4ABB /* SwiftDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F790E92A2C17A4610036A61D /* SetTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
+		F7CB4D4D2C0D8114007C4ABB /* Calmodoro Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calmodoro Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataExampleApp.swift; sourceTree = "<group>"; };
 		F7CB4D522C0D8114007C4ABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F7CB4D542C0D8114007C4ABB /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -51,7 +53,7 @@
 		F7CB4D4E2C0D8114007C4ABB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F7CB4D4D2C0D8114007C4ABB /* SwiftDataExample.app */,
+				F7CB4D4D2C0D8114007C4ABB /* Calmodoro Timer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +69,7 @@
 				F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */,
 				F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */,
 				F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */,
+				F790E92A2C17A4610036A61D /* SetTimerView.swift */,
 			);
 			path = SwiftDataExample;
 			sourceTree = "<group>";
@@ -82,9 +85,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F7CB4D4C2C0D8114007C4ABB /* SwiftDataExample */ = {
+		F7CB4D4C2C0D8114007C4ABB /* Calmodoro Timer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7CB4D5D2C0D8115007C4ABB /* Build configuration list for PBXNativeTarget "SwiftDataExample" */;
+			buildConfigurationList = F7CB4D5D2C0D8115007C4ABB /* Build configuration list for PBXNativeTarget "Calmodoro Timer" */;
 			buildPhases = (
 				F7CB4D492C0D8114007C4ABB /* Sources */,
 				F7CB4D4A2C0D8114007C4ABB /* Frameworks */,
@@ -94,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftDataExample;
+			name = "Calmodoro Timer";
 			productName = SwiftDataExample;
-			productReference = F7CB4D4D2C0D8114007C4ABB /* SwiftDataExample.app */;
+			productReference = F7CB4D4D2C0D8114007C4ABB /* Calmodoro Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F7CB4D482C0D8114007C4ABB /* Build configuration list for PBXProject "SwiftDataExample" */;
+			buildConfigurationList = F7CB4D482C0D8114007C4ABB /* Build configuration list for PBXProject "Calmodoro Timer" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F7CB4D4C2C0D8114007C4ABB /* SwiftDataExample */,
+				F7CB4D4C2C0D8114007C4ABB /* Calmodoro Timer */,
 			);
 		};
 /* End PBXProject section */
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7CB4DA32C101477007C4ABB /* ExtensionDouble.swift in Sources */,
+				F790E92B2C17A4610036A61D /* SetTimerView.swift in Sources */,
 				F7CB4DA12C10143C007C4ABB /* TimerViewModel.swift in Sources */,
 				F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */,
 				F7CB4D9F2C1013DD007C4ABB /* ProgressBarView.swift in Sources */,
@@ -213,7 +217,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -270,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -341,7 +345,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F7CB4D482C0D8114007C4ABB /* Build configuration list for PBXProject "SwiftDataExample" */ = {
+		F7CB4D482C0D8114007C4ABB /* Build configuration list for PBXProject "Calmodoro Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7CB4D5B2C0D8115007C4ABB /* Debug */,
@@ -350,7 +354,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7CB4D5D2C0D8115007C4ABB /* Build configuration list for PBXNativeTarget "SwiftDataExample" */ = {
+		F7CB4D5D2C0D8115007C4ABB /* Build configuration list for PBXNativeTarget "Calmodoro Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7CB4D5E2C0D8115007C4ABB /* Debug */,

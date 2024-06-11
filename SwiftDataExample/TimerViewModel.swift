@@ -11,6 +11,8 @@ import AVFoundation
 
 class TimerViewModel: NSObject, ObservableObject {
     // MARK: - Published properties
+    @Published var selectedMinutes: Int = 0
+    @Published var selectedSeconds: Int = 0
     @Published var progress: Double
     @Published var seconds: TimeInterval
     @Published var displayTime: String = ""
@@ -64,12 +66,20 @@ class TimerViewModel: NSObject, ObservableObject {
         self.displayTime = calculateDisplayTime()
     }
     
+    func updateGoalTime() {
+        self.goalTime = calculateTimerTime()
+    }
+    
     // MARK: - Private Methods
     private func calculateDisplayTime() -> String {
         let minutes = Int(seconds) / 60
         let seconds = Int(seconds) % 60
         
         return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    private func calculateTimerTime() -> Double {
+        return Double(selectedMinutes * 60) + Double(selectedSeconds)
     }
     
     private func makeSoundAndVibration() {

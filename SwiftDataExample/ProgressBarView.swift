@@ -27,7 +27,7 @@ struct ProgressBarView: View {
             .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .butt, dash: [3, 6]))
             .fill(.gray)
             .rotationEffect(Angle(degrees: -90))
-            .frame(width: 200, height: 200)
+            .frame(width: 250, height: 250)
     }
     
     private var progressCircle: some View {
@@ -37,7 +37,7 @@ struct ProgressBarView: View {
             .fill(.yellow)
             .animation(.spring(), value: progress)
             .rotationEffect(Angle(degrees: -90))
-            .frame(width: 200, height: 200)
+            .frame(width: 250, height: 250)
     }
 }
 

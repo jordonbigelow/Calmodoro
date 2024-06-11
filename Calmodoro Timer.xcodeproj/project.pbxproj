@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F790E92B2C17A4610036A61D /* SetTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790E92A2C17A4610036A61D /* SetTimerView.swift */; };
 		F790E9A12C189D7A0036A61D /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790E9A02C189D7A0036A61D /* TimerView.swift */; };
 		F7CB4D512C0D8114007C4ABB /* SwiftDataExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */; };
 		F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D522C0D8114007C4ABB /* ContentView.swift */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F790E92A2C17A4610036A61D /* SetTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
 		F790E9A02C189D7A0036A61D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		F7CB4D4D2C0D8114007C4ABB /* Calmodoro Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calmodoro Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataExampleApp.swift; sourceTree = "<group>"; };
@@ -66,13 +64,12 @@
 				F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */,
 				F7CB4D522C0D8114007C4ABB /* ContentView.swift */,
 				F7CB4D542C0D8114007C4ABB /* Task.swift */,
-				F7CB4D562C0D8115007C4ABB /* Assets.xcassets */,
-				F7CB4D582C0D8115007C4ABB /* Preview Content */,
 				F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */,
 				F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */,
 				F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */,
-				F790E92A2C17A4610036A61D /* SetTimerView.swift */,
 				F790E9A02C189D7A0036A61D /* TimerView.swift */,
+				F7CB4D562C0D8115007C4ABB /* Assets.xcassets */,
+				F7CB4D582C0D8115007C4ABB /* Preview Content */,
 			);
 			path = "Calmodoro Timer";
 			sourceTree = "<group>";
@@ -156,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7CB4DA32C101477007C4ABB /* ExtensionDouble.swift in Sources */,
-				F790E92B2C17A4610036A61D /* SetTimerView.swift in Sources */,
 				F7CB4DA12C10143C007C4ABB /* TimerViewModel.swift in Sources */,
 				F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */,
 				F7CB4D9F2C1013DD007C4ABB /* ProgressBarView.swift in Sources */,

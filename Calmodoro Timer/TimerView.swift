@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct TimerView: View {
-    @ObservedObject var pomodoroTimerViewModel: TimerViewModel = TimerViewModel(seconds: 0, goalTime: 120)
-    @ObservedObject var breakTimerViewModel: TimerViewModel = TimerViewModel(seconds: 0, goalTime: 60)
+    // MARK: - Properties
+    @ObservedObject var pomodoroTimerViewModel: TimerViewModel = TimerViewModel(seconds: 0, goalTime: 1500)
+    @ObservedObject var breakTimerViewModel: TimerViewModel = TimerViewModel(seconds: 0, goalTime: 300)
     @State var isPomodoroTimerActive = true
     @State var isBreakTimerActive = false
     @State var isSetTimerButtonActive = false
     @State var isPaused = true
     @State private var rotation = 0
-    @State var pomodoroTimer: Double = 0
-    @State var breakTimer: Double = 0
+    @State private var selectedMinute = 0
+    @State private var selectedSecond = 0
+   
+    // These are used for the Picker values to display minutes and seconds
+    let minutes = Array(0..<60)
+    let seconds = Array(0..<60)
     
+    // MARK: - Main View Body
     var body: some View {
         VStack {
             VStack {
@@ -25,14 +31,15 @@ struct TimerView: View {
                     .font(.title)
                 topButtons
                 ZStack {
-                    ProgressBarView(progress: isPomodoroTimerActive ? $pomodoroTimerViewModel.seconds : $breakTimerViewModel.seconds, goal: isPomodoroTimerActive ? $pomodoroTimerViewModel.goalTime : $breakTimerViewModel.goalTime)
+                    ProgressBarView(progress: isPomodoroTimerActive ? $pomodoroTimerViewModel.seconds : $breakTimerViewModel.seconds, 
+                                    goal: isPomodoroTimerActive ? $pomodoroTimerViewModel.goalTime : $breakTimerViewModel.goalTime)
                         .padding(20)
                     if !isSetTimerButtonActive {
                         timerText
                     }
                     
                     if (isPomodoroTimerActive || isBreakTimerActive) && isSetTimerButtonActive {
-                        SetTimerView()
+                        setTimerView
                     }
                 }
                 
@@ -146,6 +153,41 @@ struct TimerView: View {
         }
     }
     
+    // MARK: - SetTimerView
+    var setTimerView: some View {
+        VStack {
+            HStack {
+                HStack {
+                    Picker(selection: isPomodoroTimerActive ? $pomodoroTimerViewModel.selectedMinutes : $breakTimerViewModel.selectedMinutes, label: Text("Minute")) {
+                        ForEach(minutes, id: \.self) { minute in
+                            Text("\(minute)").tag(minute)
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(width: 45)
+                    .clipped()
+                    
+                    Text("Min")
+                }
+                
+                HStack {
+                    Picker(selection: isPomodoroTimerActive ? $pomodoroTimerViewModel.selectedSeconds : $breakTimerViewModel.selectedSeconds, label: Text("Second")) {
+                        ForEach(seconds, id: \.self) { second in
+                            Text("\(second)").tag(second)
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(width: 45)
+                    .clipped()
+                    
+                    Text("Sec")
+                }
+            }
+            .font(.caption2)
+            .padding()
+        }
+    }
+    
     // MARK: - Private Methods
     private func reset(timerViewModel: TimerViewModel, rotation: Int) {
         withAnimation(.easeInOut(duration: 0.4)) {
@@ -160,12 +202,13 @@ struct TimerView: View {
             timerViewModel.displayTime = "00:00"
         }
     }
-    
+   
+    // TODO: - I don't think this function is good practice. I think this is weird, it works, but it's a hack
     private func setTimer() {
         if isPomodoroTimerActive {
-            pomodoroTimerViewModel.updateGoalTime()
+            pomodoroTimerViewModel.updateGoalTime(with: Double(pomodoroTimerViewModel.selectedMinutes * 60) + Double(pomodoroTimerViewModel.selectedSeconds))
         } else if isBreakTimerActive {
-            breakTimerViewModel.updateGoalTime()
+            breakTimerViewModel.updateGoalTime(with: Double(breakTimerViewModel.selectedMinutes * 60) + Double(breakTimerViewModel.selectedSeconds))
         }
     }
 }

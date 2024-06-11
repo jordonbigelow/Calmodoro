@@ -70,6 +70,7 @@ struct ContentView: View {
                 }
             }
         }
+        .background(.indigo)
     }
     
     
@@ -89,7 +90,6 @@ struct ContentView: View {
         }
     }
 }
-
 
 #Preview {
     ContentView()

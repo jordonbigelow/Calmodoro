@@ -18,6 +18,7 @@ class TimerViewModel: NSObject, ObservableObject {
     @Published var displayTime: String = ""
     @Published var goalTime: Double = 0
     
+    
     // MARK: - Private properties
     private var timer: Timer = Timer()
     private var soundId: SystemSoundID = 1407
@@ -66,8 +67,8 @@ class TimerViewModel: NSObject, ObservableObject {
         self.displayTime = calculateDisplayTime()
     }
     
-    func updateGoalTime() {
-        self.goalTime = calculateTimerTime()
+    func updateGoalTime(with goalTime: Double) {
+        self.goalTime = goalTime
     }
     
     // MARK: - Private Methods
@@ -77,11 +78,7 @@ class TimerViewModel: NSObject, ObservableObject {
         
         return String(format: "%02d:%02d", minutes, seconds)
     }
-    
-    private func calculateTimerTime() -> Double {
-        return Double(selectedMinutes * 60) + Double(selectedSeconds)
-    }
-    
+   
     private func makeSoundAndVibration() {
         AudioServicesPlayAlertSoundWithCompletion(soundId, nil)
         AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate), {})

@@ -16,7 +16,7 @@ struct SetTimerView: View {
     let minutes = Array(0..<60)
     let seconds = Array(0..<60)
     
-    var body: some View {
+    var setTimerView: some View {
         VStack {
             HStack {
                 HStack {

@@ -67,8 +67,8 @@ class TimerViewModel: NSObject, ObservableObject {
         self.displayTime = calculateDisplayTime()
     }
     
-    func updateGoalTime(with goalTime: Double) {
-        self.goalTime = goalTime
+    func updateGoalTime() {
+        self.goalTime = Double(selectedMinutes * 60) + Double(selectedSeconds)
     }
     
     // MARK: - Private Methods

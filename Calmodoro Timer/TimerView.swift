@@ -203,12 +203,11 @@ struct TimerView: View {
         }
     }
    
-    // TODO: - I don't think this function is good practice. I think this is weird, it works, but it's a hack
     private func setTimer() {
         if isPomodoroTimerActive {
-            pomodoroTimerViewModel.updateGoalTime(with: Double(pomodoroTimerViewModel.selectedMinutes * 60) + Double(pomodoroTimerViewModel.selectedSeconds))
+            pomodoroTimerViewModel.updateGoalTime()
         } else if isBreakTimerActive {
-            breakTimerViewModel.updateGoalTime(with: Double(breakTimerViewModel.selectedMinutes * 60) + Double(breakTimerViewModel.selectedSeconds))
+            breakTimerViewModel.updateGoalTime()
         }
     }
 }

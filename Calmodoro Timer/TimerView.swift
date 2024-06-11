@@ -19,7 +19,7 @@ struct TimerView: View {
     @State private var selectedMinute = 0
     @State private var selectedSecond = 0
    
-    // These are used for the Picker values to display minutes and seconds
+    // These are used for the Picker values to display minutes and seconds to the user
     let minutes = Array(0..<60)
     let seconds = Array(0..<60)
     

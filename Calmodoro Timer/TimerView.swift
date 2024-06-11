@@ -29,7 +29,9 @@ struct TimerView: View {
             VStack {
                 Text("Calmodoro Timer")
                     .font(.title)
+                
                 topButtons
+                
                 ZStack {
                     ProgressBarView(progress: isPomodoroTimerActive ? $pomodoroTimerViewModel.seconds : $breakTimerViewModel.seconds, 
                                     goal: isPomodoroTimerActive ? $pomodoroTimerViewModel.goalTime : $breakTimerViewModel.goalTime)
@@ -158,6 +160,8 @@ struct TimerView: View {
         VStack {
             HStack {
                 HStack {
+                    Text("Min")
+                    
                     Picker(selection: isPomodoroTimerActive ? $pomodoroTimerViewModel.selectedMinutes : $breakTimerViewModel.selectedMinutes, label: Text("Minute")) {
                         ForEach(minutes, id: \.self) { minute in
                             Text("\(minute)").tag(minute)
@@ -167,7 +171,6 @@ struct TimerView: View {
                     .frame(width: 45)
                     .clipped()
                     
-                    Text("Min")
                 }
                 
                 HStack {

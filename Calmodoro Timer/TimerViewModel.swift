@@ -11,7 +11,7 @@ import AVFoundation
 
 class TimerViewModel: NSObject, ObservableObject {
     // MARK: - Published properties
-    @Published var selectedMinutes: Int = 0
+    @Published var selectedMinutes: Int = 5
     @Published var selectedSeconds: Int = 0
     @Published var progress: Double
     @Published var seconds: TimeInterval
@@ -31,7 +31,7 @@ class TimerViewModel: NSObject, ObservableObject {
         self.progress = seconds / Double(goalTime)
     }
     
-    // MARK: - Timer Methods
+    // MARK: - Timer Public Methods
     @objc func fireTimer() {
         seconds += 0.2
         progress = Double(seconds) / Double(goalTime)

@@ -25,14 +25,6 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Task]
     
-    // MARK: - Initializer
-    init(seconds: TimeInterval = 0) {
-        // 25 minutes in seconds = 1500
-        //pomodoroTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 120)
-        // 5 minutes in seconds = 300
-        //breakTimerViewModel = TimerViewModel(seconds: seconds, goalTime: 60)
-    }
-    
     var body: some View {
         // MARK: - Timer View
         VStack {

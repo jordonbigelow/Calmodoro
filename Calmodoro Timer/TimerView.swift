@@ -84,7 +84,7 @@ struct TimerView: View {
                 .padding(5)
                 .background(isPomodoroTimerActive ? .yellow: .white)
                 .cornerRadius(5)
-                .shadow(radius: isPomodoroTimerActive ? 5 : 0)
+                .shadow(color: .black, radius: isPomodoroTimerActive ? 5 : 0)
                 
                 Button("Break", action: {
                     isBreakTimerActive = true
@@ -93,7 +93,7 @@ struct TimerView: View {
                 .padding(5)
                 .background(isBreakTimerActive ? .yellow: .white)
                 .cornerRadius(5)
-                .shadow(radius: isBreakTimerActive ? 5 : 0)
+                .shadow(color: .black, radius: isBreakTimerActive ? 5 : 0)
                 
                 Button("Set Timer", action: {
                     isSetTimerButtonActive.toggle()
@@ -104,7 +104,7 @@ struct TimerView: View {
                 .padding(5)
                 .background(isSetTimerButtonActive ? .yellow: .white)
                 .cornerRadius(5)
-                .shadow(radius: isSetTimerButtonActive ? 5 : 0)
+                .shadow(color: .black, radius: isSetTimerButtonActive ? 5 : 0)
             }
         }
         .foregroundColor(.indigo)

@@ -23,7 +23,7 @@ import SwiftData
 struct ContentView: View {
     // MARK: - Properties
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Task]
+    @Query private var tasks: [Task]
     
     var body: some View {
         // MARK: - Timer View
@@ -33,7 +33,7 @@ struct ContentView: View {
             VStack {
                 NavigationSplitView {
                     List {
-                        ForEach(items) { item in
+                        ForEach(tasks) { item in
                             NavigationLink {
                                 Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
                             } label: {
@@ -69,15 +69,15 @@ struct ContentView: View {
     // MARK: - Private Methods
     private func addItem() {
         withAnimation {
-            let newItem = Task(timestamp: Date())
-            modelContext.insert(newItem)
+            let newTask = Task(timestamp: Date())
+            modelContext.insert(newTask)
         }
     }
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(tasks[index])
             }
         }
     }

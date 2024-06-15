@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct SwiftDataExampleApp: App {
+struct CalmodoroTimer: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Task.self,

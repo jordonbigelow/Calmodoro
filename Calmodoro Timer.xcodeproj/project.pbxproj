@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F790E9A12C189D7A0036A61D /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790E9A02C189D7A0036A61D /* TimerView.swift */; };
-		F7CB4D512C0D8114007C4ABB /* SwiftDataExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */; };
+		F7CB4D512C0D8114007C4ABB /* CalmodoroTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D502C0D8114007C4ABB /* CalmodoroTimerApp.swift */; };
 		F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D522C0D8114007C4ABB /* ContentView.swift */; };
 		F7CB4D552C0D8114007C4ABB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D542C0D8114007C4ABB /* Task.swift */; };
 		F7CB4D572C0D8115007C4ABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7CB4D562C0D8115007C4ABB /* Assets.xcassets */; };
@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		F790E9A02C189D7A0036A61D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		F7CB4D4D2C0D8114007C4ABB /* Calmodoro Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calmodoro Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataExampleApp.swift; sourceTree = "<group>"; };
+		F7CB4D502C0D8114007C4ABB /* CalmodoroTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalmodoroTimerApp.swift; sourceTree = "<group>"; };
 		F7CB4D522C0D8114007C4ABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F7CB4D542C0D8114007C4ABB /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F7CB4D562C0D8115007C4ABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		F7CB4D4F2C0D8114007C4ABB /* Calmodoro Timer */ = {
 			isa = PBXGroup;
 			children = (
-				F7CB4D502C0D8114007C4ABB /* SwiftDataExampleApp.swift */,
+				F7CB4D502C0D8114007C4ABB /* CalmodoroTimerApp.swift */,
 				F7CB4D522C0D8114007C4ABB /* ContentView.swift */,
 				F7CB4D542C0D8114007C4ABB /* Task.swift */,
 				F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */,
@@ -157,7 +157,7 @@
 				F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */,
 				F7CB4D9F2C1013DD007C4ABB /* ProgressBarView.swift in Sources */,
 				F7CB4D552C0D8114007C4ABB /* Task.swift in Sources */,
-				F7CB4D512C0D8114007C4ABB /* SwiftDataExampleApp.swift in Sources */,
+				F7CB4D512C0D8114007C4ABB /* CalmodoroTimerApp.swift in Sources */,
 				F790E9A12C189D7A0036A61D /* TimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

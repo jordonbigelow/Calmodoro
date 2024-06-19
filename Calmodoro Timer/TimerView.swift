@@ -69,7 +69,6 @@ struct TimerView: View {
             .padding(15)
             .background(.blue)
             .cornerRadius(15)
-            .padding(20)
         }
     }
     

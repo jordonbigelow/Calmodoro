@@ -10,69 +10,44 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    // MARK: - Properties
-    @Environment(\.modelContext) private var modelContext
-    @Query private var tasks: [Task]
-    
+    @Environment(\.modelContext) var modelContext
+    @State private var path = [Task]()
+    @State private var sortOrder = SortDescriptor(\Task.title)
+    @State private var searchText = ""
+
     var body: some View {
-        // MARK: - Timer View
         VStack {
             TimerView()
-            // MARK: - Tasks View
-            VStack {
-                NavigationSplitView {
-                    List {
-                        ForEach(tasks) { item in
-                            NavigationLink {
-                                Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                            } label: {
-                                Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                            }
-                        }
-                        .onDelete(perform: deleteItems)
-                    }
+            NavigationStack(path: $path) {
+                TasksView(sort: sortOrder, searchString: searchText)
+                    .searchable(text: $searchText)
+                    .navigationTitle("Tasks")
+                    .navigationDestination(for: Task.self, destination: EditTasksView.init)
                     .toolbar {
-                        ToolbarItem(placement: .topBarLeading) {
-                            Text("Tasks")
-                        }
-                        
-                        ToolbarItem {
-                            Button(action: addItem) {
-                                Label("Add Item", systemImage: "plus")
+                        Button("Add Task", systemImage: "plus", action: addTask)
+                        Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                            Picker("Sort", selection: $sortOrder) {
+                                Text("Title").tag(SortDescriptor(\Task.title))
+                                Text("Date Created").tag(SortDescriptor(\Task.dateTimeCreated))
                             }
                         }
-                        
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            EditButton()
-                        }
                     }
-                } detail: {
-                    Text("Select an item")
-                }
             }
+            
         }
         .background(.indigo)
     }
     
-    
     // MARK: - Private Methods
-    private func addItem() {
+    private func addTask() {
         withAnimation {
-            let newTask = Task(timestamp: Date())
+            let newTask = Task()
             modelContext.insert(newTask)
-        }
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(tasks[index])
-            }
+            path = [newTask]
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Task.self, inMemory: true)
 }

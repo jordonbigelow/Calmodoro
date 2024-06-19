@@ -1,18 +1,19 @@
-//
-//  Task.swift
-//  SwiftDataExample
-//
-//  Created by Jordon Bigelow on 6/2/24.
-//
-
 import Foundation
 import SwiftData
 
 @Model
-final class Task {
-    var timestamp: Date
+class Task {
+    var dateTimeCreated = Date()
+    var title: String
+    var notes: String
+    var pomodoroTimerGoal: Double
+    var breakTimerGoal: Double
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(dateTimeCreated: Date = .now, title: String = "", notes: String = "", pomodoroTimerGoal: Double = 1500, breakTimerGoal: Double = 300) {
+        self.dateTimeCreated = dateTimeCreated
+        self.title = title
+        self.notes = notes
+        self.pomodoroTimerGoal = pomodoroTimerGoal
+        self.breakTimerGoal = breakTimerGoal
     }
 }

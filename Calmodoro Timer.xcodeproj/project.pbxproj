@@ -16,6 +16,8 @@
 		F7CB4D9F2C1013DD007C4ABB /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */; };
 		F7CB4DA12C10143C007C4ABB /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */; };
 		F7CB4DA32C101477007C4ABB /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */; };
+		F7D1E86F2C23741B00BAD6A1 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */; };
+		F7D1E8712C2379DD00BAD6A1 /* EditTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDouble.swift; sourceTree = "<group>"; };
+		F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTasksView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */,
 				F7CB4D562C0D8115007C4ABB /* Assets.xcassets */,
 				F7CB4D582C0D8115007C4ABB /* Preview Content */,
+				F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */,
+				F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */,
 			);
 			path = "Calmodoro Timer";
 			sourceTree = "<group>";
@@ -152,9 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D1E8712C2379DD00BAD6A1 /* EditTasksView.swift in Sources */,
 				F7CB4DA32C101477007C4ABB /* ExtensionDouble.swift in Sources */,
 				F7CB4DA12C10143C007C4ABB /* TimerViewModel.swift in Sources */,
 				F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */,
+				F7D1E86F2C23741B00BAD6A1 /* TasksView.swift in Sources */,
 				F7CB4D9F2C1013DD007C4ABB /* ProgressBarView.swift in Sources */,
 				F7CB4D552C0D8114007C4ABB /* Task.swift in Sources */,
 				F7CB4D512C0D8114007C4ABB /* CalmodoroTimerApp.swift in Sources */,

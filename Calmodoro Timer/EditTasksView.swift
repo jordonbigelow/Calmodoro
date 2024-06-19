@@ -7,13 +7,21 @@
 
 import SwiftUI
 import SwiftData
+import Foundation
 
 struct EditTasksView: View {
     @Bindable var task: Task
-    
+    var dateAsString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyy-MM-dd HH:mm:ss"
+        let selectedDate = task.dateTimeCreated
+        let dateString = dateFormatter.string(from: selectedDate)
+        return dateString
+    }
+        
     var body: some View {
         Form {
-            Text("Date Task Created: \($task.dateTimeCreated)")
+            Text("Date Task Created: \(dateAsString)")
             TextField("Title", text: $task.title)
             TextField("Notes", text: $task.notes)
         }

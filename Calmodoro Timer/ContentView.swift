@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var sortOrder = SortDescriptor(\Task.title)
     @State private var searchText = ""
 
+    // MARK: - Main Body
     var body: some View {
         VStack {
             TimerView()

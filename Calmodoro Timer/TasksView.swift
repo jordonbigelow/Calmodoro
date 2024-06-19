@@ -28,7 +28,7 @@ struct TasksView: View {
             ForEach(tasks) { task in
                 NavigationLink(value: task) {
                     HStack {
-                        Text("Title: \(task.title)")
+                        Text("\(task.title)")
                     }
                 }
             }

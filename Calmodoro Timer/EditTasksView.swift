@@ -26,7 +26,7 @@ struct EditTasksView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Task.self, configurations: config)
-        let example = Task(dateTimeCreated: .now, title: "Example Title", notes: "Example Notes", pomodoroTimerGoal: 1500, breakTimerGoal: 300)
+        let example = Task(dateTimeCreated: .now, title: "Example Title", notes: "Example Notes")
         
         return EditTasksView(task: example)
             .modelContainer(container)

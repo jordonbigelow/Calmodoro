@@ -67,15 +67,15 @@
 			children = (
 				F7CB4D502C0D8114007C4ABB /* CalmodoroTimerApp.swift */,
 				F7CB4D522C0D8114007C4ABB /* ContentView.swift */,
+				F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */,
 				F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */,
 				F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */,
 				F7CB4D542C0D8114007C4ABB /* Task.swift */,
+				F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */,
 				F790E9A02C189D7A0036A61D /* TimerView.swift */,
 				F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */,
 				F7CB4D562C0D8115007C4ABB /* Assets.xcassets */,
 				F7CB4D582C0D8115007C4ABB /* Preview Content */,
-				F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */,
-				F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */,
 			);
 			path = "Calmodoro Timer";
 			sourceTree = "<group>";

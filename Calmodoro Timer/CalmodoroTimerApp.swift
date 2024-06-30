@@ -14,6 +14,6 @@ struct CalmodoroTimer: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Task.self)
+        .modelContainer(for: [Task.self, CompletedTask.self])
     }
 }

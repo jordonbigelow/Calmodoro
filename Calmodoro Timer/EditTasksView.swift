@@ -11,9 +11,9 @@ import Foundation
 
 struct EditTasksView: View {
     @Bindable var task: Task
-    var dateAsString: String {
+    var taskCreatedDateAsString: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let selectedDate = task.dateTimeCreated
         let dateString = dateFormatter.string(from: selectedDate)
         return dateString
@@ -21,7 +21,7 @@ struct EditTasksView: View {
         
     var body: some View {
         Form {
-            Text("Date Task Created: \(dateAsString)")
+            Text("Date Task Created: \(taskCreatedDateAsString)")
             TextField("Title", text: $task.title)
             TextField("Notes", text: $task.notes)
         }

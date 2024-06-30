@@ -29,6 +29,14 @@ struct TasksView: View {
                 NavigationLink(value: task) {
                     HStack {
                         Text("\(task.title)")
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    completeTask(task: task)
+                                } label: {
+                                    Label("Complete", systemImage: "checkmark.circle")
+                                }
+                                .tint(.green)
+                            }
                     }
                 }
             }
@@ -37,8 +45,18 @@ struct TasksView: View {
     }
     
     func deleteTasks(_ indexSet: IndexSet) {
-        for index in indexSet {
-            modelContext.delete(tasks[index])
+        withAnimation {
+            for index in indexSet {
+                modelContext.delete(tasks[index])
+            }
+        }
+    }
+    
+    func completeTask(task: Task) {
+        withAnimation {
+            let completedTask = CompletedTask(dateTimeTaskCreated: task.dateTimeCreated, title: task.title, notes: task.notes)
+            modelContext.insert(completedTask)
+            modelContext.delete(task)
         }
     }
 }

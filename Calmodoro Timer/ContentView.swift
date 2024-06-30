@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  SwiftDataExample
+//  Calmodoro Timer App
 //
 //  Created by Jordon Bigelow on 6/2/24.
 //

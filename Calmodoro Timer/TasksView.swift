@@ -31,10 +31,12 @@ struct TasksView: View {
                         Text("\(task.title)")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fontWeight(.bold)
-                        Text("\(task.notes)")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .fontWeight(.light)
-                    }
+                        if !task.notes.isEmpty {
+                            Text("\(task.notes)")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .fontWeight(.light)
+                        }
+                                            }
                     .swipeActions(edge: .leading) {
                         Button {
                             completeTask(task: task)

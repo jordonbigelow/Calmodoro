@@ -21,7 +21,13 @@ struct ContentView: View {
 
     // MARK: - Main Body
     var body: some View {
+        
+        
         VStack {
+            ScrollView {
+                TimerView()
+            }
+            
             NavigationStack(path: $taskPath) {
                 if isTasksDisplayed {
                     TasksView(sort: taskSortOrder, searchString: searchText)
@@ -75,8 +81,7 @@ struct ContentView: View {
                         }
                 }
             }
-            
-            TimerView()
+            .frame(height: 300)
         }
         .background(.indigo)
     }

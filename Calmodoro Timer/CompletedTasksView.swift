@@ -35,9 +35,13 @@ struct CompletedTasksView: View {
             ForEach(completedTasks) { task in
                 VStack {
                     Text("Created: \(dateFormatter.string(from: task.dateTimeTaskCreated))")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Completed: \(dateFormatter.string(from: task.dateTimeCompleted))")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Title: \(task.title)")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Notes: \(task.notes)")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
             .onDelete(perform: deleteTasks)

@@ -27,16 +27,20 @@ struct TasksView: View {
         List {
             ForEach(tasks) { task in
                 NavigationLink(value: task) {
-                    HStack {
+                    VStack {
                         Text("\(task.title)")
-                            .swipeActions(edge: .leading) {
-                                Button {
-                                    completeTask(task: task)
-                                } label: {
-                                    Label("Complete", systemImage: "checkmark.circle")
-                                }
-                                .tint(.green)
-                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("\(task.notes)")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .fontWeight(.light)
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button {
+                            completeTask(task: task)
+                        } label: {
+                            Label("Complete", systemImage: "checkmark.circle")
+                        }
+                        .tint(.green)
                     }
                 }
             }

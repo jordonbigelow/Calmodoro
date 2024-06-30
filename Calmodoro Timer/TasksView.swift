@@ -30,6 +30,7 @@ struct TasksView: View {
                     VStack {
                         Text("\(task.title)")
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .fontWeight(.bold)
                         Text("\(task.notes)")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fontWeight(.light)

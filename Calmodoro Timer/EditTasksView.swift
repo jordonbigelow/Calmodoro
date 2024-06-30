@@ -11,19 +11,22 @@ import Foundation
 
 struct EditTasksView: View {
     @Bindable var task: Task
-    var taskCreatedDateAsString: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let selectedDate = task.dateTimeCreated
-        let dateString = dateFormatter.string(from: selectedDate)
-        return dateString
-    }
+    
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
         
     var body: some View {
         Form {
-            Text("Date Task Created: \(taskCreatedDateAsString)")
+            Text("Created: \(dateFormatter.string(from: task.dateTimeCreated))")
             TextField("Title", text: $task.title)
-            TextField("Notes", text: $task.notes)
+            HStack {
+                Text("Notes: ")
+                TextEditor(text: $task.notes)
+            }
         }
         .navigationTitle("Edit Task")
         .navigationBarTitleDisplayMode(.inline)

@@ -28,6 +28,7 @@ struct EditTasksView: View {
             HStack {
                 Text("Notes: ")
                 TextEditor(text: $task.notes)
+                    .frame(height: 150)
             }
         }
         .navigationTitle("Edit Task")

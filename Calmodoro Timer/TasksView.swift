@@ -17,8 +17,8 @@ struct TasksView: View {
             if searchString.isEmpty {
                 return true
             } else {
-                return $0.title
-                    .localizedStandardContains(searchString)
+                return $0.title.localizedStandardContains(searchString) ||
+                $0.notes.localizedStandardContains(searchString)
             }
         }, sort: [sort])
     }

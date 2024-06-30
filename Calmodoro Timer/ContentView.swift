@@ -21,19 +21,18 @@ struct ContentView: View {
 
     // MARK: - Main Body
     var body: some View {
-        
-        
         VStack {
             ScrollView {
                 TimerView()
             }
-            
             NavigationStack(path: $taskPath) {
                 if isTasksDisplayed {
                     TasksView(sort: taskSortOrder, searchString: searchText)
                         .searchable(text: $searchText)
                         .navigationTitle("Tasks")
-                        .navigationDestination(for: Task.self, destination: EditTasksView.init)
+                        .navigationDestination(for: Task.self) { task in
+                            EditTasksView(task: task)
+                        }
                         .toolbar {
                             Button(action: {
                                 isTasksDisplayed = true

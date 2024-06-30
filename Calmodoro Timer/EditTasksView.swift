@@ -11,6 +11,8 @@ import Foundation
 
 struct EditTasksView: View {
     @Bindable var task: Task
+    @State private var showingAlert = false
+    @Environment(\.presentationMode) var presentationMode
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -30,6 +32,21 @@ struct EditTasksView: View {
         }
         .navigationTitle("Edit Task")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        .navigationBarItems(trailing: Button("Save") {
+                    if task.title.trimmingCharacters(in: .whitespaces).isEmpty {
+                        showingAlert = true
+                    } else {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                })
+                .alert(isPresented: $showingAlert) {
+                    Alert(
+                        title: Text("Missing Title"),
+                        message: Text("Title is required"),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
     }
 }
 

@@ -57,7 +57,7 @@ struct ContentView: View {
                 } else {
                     CompletedTasksView(sort: completedSortOrder, searchString: searchText)
                         .searchable(text: $searchText)
-                        .navigationTitle("CompletedTasks")
+                        .navigationTitle("Completed Tasks")
                         .toolbar {
                             Button(action: {
                                 isTasksDisplayed = true

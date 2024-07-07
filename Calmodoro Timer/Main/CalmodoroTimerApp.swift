@@ -1,6 +1,6 @@
 //
-//  SwiftDataExampleApp.swift
-//  SwiftDataExample
+//  CalmodoroTimerApp.swift
+//  CalmodoroTimerApp
 //
 //  Created by Jordon Bigelow on 6/2/24.
 //

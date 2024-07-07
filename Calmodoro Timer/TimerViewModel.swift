@@ -46,6 +46,7 @@ class TimerViewModel: NSObject, ObservableObject {
     
     func startSession() {
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.fireTimer), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
     }
     
     func stopSession() {

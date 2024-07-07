@@ -80,7 +80,7 @@ struct ContentView: View {
                         }
                 }
             }
-            .frame(height: 300)
+            .frame(height: 275)
         }
         .background(.indigo)
     }

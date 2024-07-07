@@ -25,6 +25,9 @@ struct ContentView: View {
             ScrollView {
                 TimerView()
             }
+            
+            Spacer()
+            
             NavigationStack(path: $taskPath) {
                 if isTasksDisplayed {
                     TasksView(sort: taskSortOrder, searchString: searchText)

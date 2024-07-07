@@ -50,6 +50,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F78DD2842C3AF5200022F8CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F7D1E8742C31C25B00BAD6A1 /* CompletedTasksView.swift */,
+				F7CB4D522C0D8114007C4ABB /* ContentView.swift */,
+				F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */,
+				F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */,
+				F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */,
+				F790E9A02C189D7A0036A61D /* TimerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F78DD2852C3AF53F0022F8CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7D1E8722C31C0B500BAD6A1 /* CompletedTask.swift */,
+				F7CB4D542C0D8114007C4ABB /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F78DD2862C3AF5570022F8CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F78DD2872C3AF5680022F8CE /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		F78DD2882C3AF5830022F8CE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F7CB4D502C0D8114007C4ABB /* CalmodoroTimerApp.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		F7CB4D442C0D8114007C4ABB = {
 			isa = PBXGroup;
 			children = (
@@ -69,17 +114,12 @@
 		F7CB4D4F2C0D8114007C4ABB /* Calmodoro Timer */ = {
 			isa = PBXGroup;
 			children = (
-				F7CB4D502C0D8114007C4ABB /* CalmodoroTimerApp.swift */,
-				F7D1E8722C31C0B500BAD6A1 /* CompletedTask.swift */,
-				F7D1E8742C31C25B00BAD6A1 /* CompletedTasksView.swift */,
-				F7CB4D522C0D8114007C4ABB /* ContentView.swift */,
-				F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */,
-				F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */,
-				F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */,
-				F7CB4D542C0D8114007C4ABB /* Task.swift */,
-				F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */,
-				F790E9A02C189D7A0036A61D /* TimerView.swift */,
+				F78DD2882C3AF5830022F8CE /* Main */,
+				F78DD2872C3AF5680022F8CE /* View Models */,
 				F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */,
+				F78DD2862C3AF5570022F8CE /* Extensions */,
+				F78DD2852C3AF53F0022F8CE /* Models */,
+				F78DD2842C3AF5200022F8CE /* Views */,
 				F7CB4D562C0D8115007C4ABB /* Assets.xcassets */,
 				F7CB4D582C0D8115007C4ABB /* Preview Content */,
 			);

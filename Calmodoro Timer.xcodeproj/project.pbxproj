@@ -15,12 +15,22 @@
 		F7CB4D5A2C0D8115007C4ABB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7CB4D592C0D8115007C4ABB /* Preview Assets.xcassets */; };
 		F7CB4D9F2C1013DD007C4ABB /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */; };
 		F7CB4DA12C10143C007C4ABB /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */; };
-		F7CB4DA32C101477007C4ABB /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */; };
 		F7D1E86F2C23741B00BAD6A1 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */; };
 		F7D1E8712C2379DD00BAD6A1 /* EditTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */; };
 		F7D1E8732C31C0B500BAD6A1 /* CompletedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D1E8722C31C0B500BAD6A1 /* CompletedTask.swift */; };
 		F7D1E8752C31C25B00BAD6A1 /* CompletedTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D1E8742C31C25B00BAD6A1 /* CompletedTasksView.swift */; };
+		F7EC95B42C444708007C9FE1 /* Calmodoro_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EC95B32C444708007C9FE1 /* Calmodoro_TimerTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7EC95B52C444708007C9FE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7CB4D452C0D8114007C4ABB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7CB4D4C2C0D8114007C4ABB;
+			remoteInfo = "Calmodoro Timer";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F790E9A02C189D7A0036A61D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -32,15 +42,23 @@
 		F7CB4D592C0D8115007C4ABB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F7CB4D9E2C1013DD007C4ABB /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDouble.swift; sourceTree = "<group>"; };
 		F7D1E86E2C23741B00BAD6A1 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		F7D1E8702C2379DD00BAD6A1 /* EditTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTasksView.swift; sourceTree = "<group>"; };
 		F7D1E8722C31C0B500BAD6A1 /* CompletedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTask.swift; sourceTree = "<group>"; };
 		F7D1E8742C31C25B00BAD6A1 /* CompletedTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksView.swift; sourceTree = "<group>"; };
+		F7EC95B12C444708007C9FE1 /* Calmodoro TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Calmodoro TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7EC95B32C444708007C9FE1 /* Calmodoro_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calmodoro_TimerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F7CB4D4A2C0D8114007C4ABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7EC95AE2C444708007C9FE1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,14 +90,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		F78DD2862C3AF5570022F8CE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				F7CB4DA22C101477007C4ABB /* ExtensionDouble.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		F78DD2872C3AF5680022F8CE /* View Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				F7CB4D4F2C0D8114007C4ABB /* Calmodoro Timer */,
+				F7EC95B22C444708007C9FE1 /* Calmodoro TimerTests */,
 				F7CB4D4E2C0D8114007C4ABB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				F7CB4D4D2C0D8114007C4ABB /* Calmodoro Timer.app */,
+				F7EC95B12C444708007C9FE1 /* Calmodoro TimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,7 +129,6 @@
 				F78DD2882C3AF5830022F8CE /* Main */,
 				F78DD2872C3AF5680022F8CE /* View Models */,
 				F7CB4DA02C10143C007C4ABB /* TimerViewModel.swift */,
-				F78DD2862C3AF5570022F8CE /* Extensions */,
 				F78DD2852C3AF53F0022F8CE /* Models */,
 				F78DD2842C3AF5200022F8CE /* Views */,
 				F7CB4D562C0D8115007C4ABB /* Assets.xcassets */,
@@ -132,6 +143,14 @@
 				F7CB4D592C0D8115007C4ABB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F7EC95B22C444708007C9FE1 /* Calmodoro TimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC95B32C444708007C9FE1 /* Calmodoro_TimerTests.swift */,
+			);
+			path = "Calmodoro TimerTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +173,24 @@
 			productReference = F7CB4D4D2C0D8114007C4ABB /* Calmodoro Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F7EC95B02C444708007C9FE1 /* Calmodoro TimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7EC95B72C444708007C9FE1 /* Build configuration list for PBXNativeTarget "Calmodoro TimerTests" */;
+			buildPhases = (
+				F7EC95AD2C444708007C9FE1 /* Sources */,
+				F7EC95AE2C444708007C9FE1 /* Frameworks */,
+				F7EC95AF2C444708007C9FE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7EC95B62C444708007C9FE1 /* PBXTargetDependency */,
+			);
+			name = "Calmodoro TimerTests";
+			productName = "Calmodoro TimerTests";
+			productReference = F7EC95B12C444708007C9FE1 /* Calmodoro TimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -166,6 +203,10 @@
 				TargetAttributes = {
 					F7CB4D4C2C0D8114007C4ABB = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					F7EC95B02C444708007C9FE1 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = F7CB4D4C2C0D8114007C4ABB;
 					};
 				};
 			};
@@ -183,6 +224,7 @@
 			projectRoot = "";
 			targets = (
 				F7CB4D4C2C0D8114007C4ABB /* Calmodoro Timer */,
+				F7EC95B02C444708007C9FE1 /* Calmodoro TimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -197,6 +239,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7EC95AF2C444708007C9FE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -205,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D1E8712C2379DD00BAD6A1 /* EditTasksView.swift in Sources */,
-				F7CB4DA32C101477007C4ABB /* ExtensionDouble.swift in Sources */,
 				F7CB4DA12C10143C007C4ABB /* TimerViewModel.swift in Sources */,
 				F7CB4D532C0D8114007C4ABB /* ContentView.swift in Sources */,
 				F7D1E86F2C23741B00BAD6A1 /* TasksView.swift in Sources */,
@@ -218,7 +266,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7EC95AD2C444708007C9FE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7EC95B42C444708007C9FE1 /* Calmodoro_TimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7EC95B62C444708007C9FE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7CB4D4C2C0D8114007C4ABB /* Calmodoro Timer */;
+			targetProxy = F7EC95B52C444708007C9FE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F7CB4D5B2C0D8115007C4ABB /* Debug */ = {
@@ -365,6 +429,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -397,10 +462,49 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F7EC95B82C444708007C9FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZB7S9FTL4Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twisted-studios.Calmodoro-TimerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calmodoro Timer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Calmodoro Timer";
+			};
+			name = Debug;
+		};
+		F7EC95B92C444708007C9FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZB7S9FTL4Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twisted-studios.Calmodoro-TimerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calmodoro Timer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Calmodoro Timer";
 			};
 			name = Release;
 		};
@@ -421,6 +525,15 @@
 			buildConfigurations = (
 				F7CB4D5E2C0D8115007C4ABB /* Debug */,
 				F7CB4D5F2C0D8115007C4ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7EC95B72C444708007C9FE1 /* Build configuration list for PBXNativeTarget "Calmodoro TimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7EC95B82C444708007C9FE1 /* Debug */,
+				F7EC95B92C444708007C9FE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

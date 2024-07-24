@@ -98,6 +98,7 @@ struct TimerView: View {
                     isSetTimerButtonActive.toggle()
                     if !isSetTimerButtonActive {
                         setTimer()
+                        askForNotificationPermission()
                     }
                 })
                 .padding(5)
@@ -112,9 +113,11 @@ struct TimerView: View {
     private var startPauseButton: some View {
         Button {
             if pomodoroTimerViewModel.progress < 1 && isPomodoroTimerActive {
+                scheduleNotification()
                 isPaused.toggle()
                 isPaused ? pomodoroTimerViewModel.pauseSession() : pomodoroTimerViewModel.startSession()
             } else if breakTimerViewModel.progress < 1 && isBreakTimerActive {
+                scheduleNotification()
                 isPaused.toggle()
                 isPaused ? breakTimerViewModel.pauseSession() : breakTimerViewModel.startSession()
             }
@@ -203,6 +206,33 @@ struct TimerView: View {
             timerViewModel.resetTimer()
             timerViewModel.displayTime = "00:00"
         }
+    }
+    
+    private func askForNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+                content.title = "Timer Done"
+                content.subtitle = "Your Time is finished!"
+                content.sound = UNNotificationSound.default
+                
+                // show this notification five seconds from now
+        let trigger = UNTimeIntervalNotificationTrigger( timeInterval: isPomodoroTimerActive ? pomodoroTimerViewModel.goalTime : breakTimerViewModel.goalTime, repeats: false)
+                
+                // choose a random identifier
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                
+                // add our notification request
+                UNUserNotificationCenter.current().add(request)
+
     }
    
     private func setTimer() {
